@@ -22,6 +22,12 @@ export default clerkMiddleware((auth,req) =>{
   if (userId && isPublicApiRoute(req) && !isAccessingDashboard) {
     return NextResponse.redirect(new URL("/home", req.url));
   }
+  if (!userId) {
+    if (!isPublicRoute(req) && !isPublicApiRoute(req)) {
+      return NextResponse.redirect(new URL("/sign-in", req.url));
+    }
+    
+  }
 });
 
 

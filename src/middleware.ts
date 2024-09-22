@@ -26,7 +26,10 @@ export default clerkMiddleware((auth,req) =>{
     if (!isPublicRoute(req) && !isPublicApiRoute(req)) {
       return NextResponse.redirect(new URL("/sign-in", req.url));
     }
-    
+    if (isApiRequest && !isPublicApiRoute(req)) {
+      return NextResponse.redirect(new URL("/sign-in", req.url));
+      
+    }
   }
 });
 

@@ -8,6 +8,10 @@ const isPublicRoute = createRouteMatcher([
   "/home"
 ]);
 
+const isPublicApiRoute = createRouteMatcher([
+  "/api/videos",
+])
+
 export default clerkMiddleware();
 
 

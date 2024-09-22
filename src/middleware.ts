@@ -41,10 +41,10 @@ export default clerkMiddleware((auth, req) => {
 
 // Configuration for the middleware matcher
 export const config = {
-  matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
-    '/(api|trpc)(.*)',
-  ],
+ // This matcher array is used to define URL patterns for routing or middleware.
+// 1. "/((?!.*\\..*|_next).*)" - Matches any URL that does not contain a dot (.) or the "_next" segment.
+// 2. "/" - Matches the root URL.
+// 3. "/(api|trpc)(.*)" - Matches any URL that starts with "api" or "trpc", followed by any characters.
+matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+
 };

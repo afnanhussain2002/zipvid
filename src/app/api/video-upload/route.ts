@@ -16,7 +16,7 @@ interface CoudinaryUploadResult {
   public_id: string;
   bytes:number;
   duration?:number;
-  [key: string]: string;
+  [key: string]: any;
 }
 
 export async function POST(request: NextRequest) {
@@ -58,15 +58,9 @@ export async function POST(request: NextRequest) {
           }
         );
         uploadStream.end(buffer);
-
-        return NextResponse.json(
-          {
-            publicId: result.public_id,
-          },
-          { status: 201 }
-        );
       }
     );
+    
   } catch (error) {
     console.log("upload image failed", error);
     return NextResponse.json({ error: "upload image failed" }, { status: 501 });

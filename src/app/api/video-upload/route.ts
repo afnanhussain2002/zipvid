@@ -32,6 +32,8 @@ export async function POST(request: NextRequest) {
     const description = formData.get("description") as string;
     const originalSize = formData.get("originalSize") as string;
 
+
+
     if (!file) {
       return NextResponse.json({ error: "File not found" }, { status: 400 });
     }
@@ -42,7 +44,14 @@ export async function POST(request: NextRequest) {
     const result = await new Promise<CoudinaryUploadResult>(
       (resolve, reject) => {
         const uploadStream = cloudinary.uploader.upload_stream(
-          { folder: "zipvid-image-uploads" },
+          { 
+            resource_type:"video",
+            folder: "zipvid-video-uploads",
+            transformation:[
+                {quality:"auto", fetch_format:"mp4"}
+            ]
+
+          },
           (error, result) => {
             if (error) reject(error);
             else resolve(result as CoudinaryUploadResult);

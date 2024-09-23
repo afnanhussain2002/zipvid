@@ -30,6 +30,9 @@ export async function POST(request:NextRequest){
        if (!file) {
         return NextResponse.json({error:"File not found"}, {status:400})
        }
+
+       const bytes = await file.arrayBuffer()
+       const buffer = Buffer.from(bytes)
     } catch (error) {
         
     }

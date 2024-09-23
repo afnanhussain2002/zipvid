@@ -2,6 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { v2 as cloudinary } from 'cloudinary';
 
+
   // Configuration
   cloudinary.config({ 
     cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME, 
@@ -18,5 +19,7 @@ interface CoudinaryUploadResult {
 export async function POST(request:NextRequest){
     const {userId} = auth()
 
-    
+   if (!userId) {
+    return NextResponse.json({error: "Unauthorized"}, {status:401})
+   }
 }

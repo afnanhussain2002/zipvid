@@ -68,11 +68,12 @@ export async function POST(request: NextRequest) {
             publicId: result.public_id,
             originalSize,
             compressedSize: String (result.bytes) ,
-            duration:result.duration || 0
+            duration: result.duration || 0 
         }
     })
+    return NextResponse.json(video)
   } catch (error) {
-    console.log("upload image failed", error);
+    console.log("upload video failed", error);
     return NextResponse.json({ error: "upload image failed" }, { status: 501 });
   }
 }

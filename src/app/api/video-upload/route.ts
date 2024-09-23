@@ -60,7 +60,17 @@ export async function POST(request: NextRequest) {
         uploadStream.end(buffer);
       }
     );
-    
+
+    const video = await prisma.video.create({
+        data:{
+            title,
+            description,
+            publicId: result.public_id,
+            originalSize,
+            compressedSize: String (result.bytes) ,
+            duration:result.duration || 0
+        }
+    })
   } catch (error) {
     console.log("upload image failed", error);
     return NextResponse.json({ error: "upload image failed" }, { status: 501 });

@@ -31,6 +31,16 @@ const VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
         })
         
     },[])
+    const getPreviewVideoUrl = useCallback((publicId: string) => {
+
+        return getCldImageUrl({
+            src: publicId,
+            width: 400,
+            height: 225,
+            rawTransformations:["e_preview:duration_15:max_seg_9:min_seg_dur_1"],
+        })
+        
+    },[])
     return (
         <div>
             Video Card

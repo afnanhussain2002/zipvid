@@ -17,7 +17,9 @@ const VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
     const [isHovered, setIsHovered] = useState(false);
     const [previewError, setPreviewError] = useState(false);
 
-    
+    const getThumbnailUrl = useCallback((publicId: string) => {
+        
+    },[])
     return (
         <div>
             Video Card

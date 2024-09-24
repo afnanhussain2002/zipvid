@@ -9,7 +9,7 @@ const socialFormats = {
     "Twitter Post (16:9)": { width: 1200, height: 675, aspectRatio: "16:9" },
     "Twitter Header (3:1)": { width: 1500, height: 500, aspectRatio: "3:1" },
     "Facebook Cover (205:78)": { width: 820, height: 312, aspectRatio: "205:78" },
-    "Bangladesh Passport Size (3:4)": { width: 37, height: 128, aspectRatio: "3:4" },
+    
   };
 
   type SocialFormat = keyof typeof socialFormats;

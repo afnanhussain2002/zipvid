@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { assert } from 'console'
+import Swal from 'sweetalert2'
 
 function VideoUpload() {
 
@@ -17,7 +18,16 @@ function VideoUpload() {
   const MAX_FILE_SIZE = 70 * 1024 * 1024
 
   const handleFileChange = async(event: React.ChangeEvent<HTMLInputElement>) => {
-    
+    event.preventDefault()
+    if (!file) return
+    if (file.size > MAX_FILE_SIZE) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "File size is to large!",
+        footer: '<a href="#">Why do I have this issue?</a>'
+      });
+    }
   }
   return (
     <div>VideoUpload</div>

@@ -34,6 +34,9 @@ function VideoUpload() {
     formData.append('file', file)
     formData.append('title', title)
     formData.append('description', description)
+    formData.append("originalSize", file.size.toString())
+
+
     
   }
   return (

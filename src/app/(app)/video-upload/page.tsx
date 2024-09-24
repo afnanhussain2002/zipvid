@@ -8,6 +8,10 @@ function VideoUpload() {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [isUploading, setIsUploading] = useState(false)
+
+  const router = useRouter()
+
+  
   return (
     <div>VideoUpload</div>
   )

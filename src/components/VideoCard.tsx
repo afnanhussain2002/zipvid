@@ -12,7 +12,7 @@ interface VideoCardProps {
     video: Video;
     onDownload: (url: string, title: string) => void;
 }
-const VideoCard = () => {
+const VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
     return (
         <div>
             Video Card

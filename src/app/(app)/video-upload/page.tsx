@@ -3,6 +3,11 @@ import axios from 'axios'
 import { useRouter } from 'next/navigation'
 
 function VideoUpload() {
+
+  const [file, setFile] = useState<File | null>(null)
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [isUploading, setIsUploading] = useState(false)
   return (
     <div>VideoUpload</div>
   )

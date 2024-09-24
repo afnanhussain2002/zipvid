@@ -37,9 +37,33 @@ function VideoUpload() {
     formData.append("originalSize", file.size.toString())
 
   try {
+    const response = await axios.post('/api/video-upload', formData)
+
+    if (!response.data) throw new Error("Upload Failed");
+
+    const result = await response.data
+    if (result.public_id) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Video uploaded successfully',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      return
+    }
+ 
     
   } catch (error) {
-    
+    console.log(error);
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong when uploading the file!",
+      footer: '<a href="#">Why do I have this issue?</a>'
+    });
+  }finally{
+    setIsUploading(false)
   }
 
 

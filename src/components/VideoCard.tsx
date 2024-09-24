@@ -45,7 +45,14 @@ const VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
     const formatSize = useCallback((size: number) => {
 
         return filesize(size)
+
     },[])
+
+    const formatDutaion = useCallback((seconds: number) => {
+        const minutes = Math.floor(seconds /60);
+        const remainingSeconds = Math.round(seconds % 60);
+        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    })
     return (
         <div>
             Video Card

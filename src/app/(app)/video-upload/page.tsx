@@ -1,7 +1,7 @@
+"use client";
 import React,{useState} from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { assert } from 'console'
 import Swal from 'sweetalert2'
 
 function VideoUpload() {
@@ -17,8 +17,8 @@ function VideoUpload() {
 
   const MAX_FILE_SIZE = 70 * 1024 * 1024
 
-  const handleFileChange = async(event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault()
+  const handleFileChange = async(e: React.FormEvent) => {
+    e.preventDefault()
     if (!file) return
     if (file.size > MAX_FILE_SIZE) {
       Swal.fire({

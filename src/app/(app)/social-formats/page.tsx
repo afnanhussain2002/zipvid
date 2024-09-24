@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react'
+import Swal from 'sweetalert2';
 
 const socialFormats = {
     "Instagram Square (1:1)": { width: 1080, height: 1080, aspectRatio: "1:1" },
@@ -41,9 +42,25 @@ function SocialFormats() {
 
             const result = await response.json();
             setUploadImage(result.public_id);
+            if (result.public_id) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Image uploaded successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
             
         } catch (error) {
             console.log(error);
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Something went wrong when upload the image",
+                showConfirmButton: false,
+                timer: 1500
+              });
             
         }finally{
             setIsUploading(false);

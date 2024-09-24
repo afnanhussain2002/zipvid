@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { assert } from 'console'
 
 function VideoUpload() {
 
@@ -15,7 +16,9 @@ function VideoUpload() {
 
   const MAX_FILE_SIZE = 70 * 1024 * 1024
 
-  
+  const handleFileChange = async(event: React.ChangeEvent<HTMLInputElement>) => {
+    
+  }
   return (
     <div>VideoUpload</div>
   )

@@ -8,7 +8,10 @@ import { Video } from '@prisma/client';
 
 dayjs.extend(relativeTime);
 
-
+interface VideoCardProps {
+    video: Video;
+    onDownload: (url: string, title: string) => void;
+}
 const VideoCard = () => {
     return (
         <div>

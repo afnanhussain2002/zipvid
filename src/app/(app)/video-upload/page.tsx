@@ -27,7 +27,7 @@ function VideoUpload() {
         text: "File size is to large!",
         footer: '<a href="#">Why do I have this issue?</a>'
       });
-      return
+      router.push('/')
     }
     setIsUploading(true)
     const formData = new FormData()

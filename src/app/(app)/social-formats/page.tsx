@@ -65,6 +65,25 @@ function SocialFormats() {
         }finally{
             setIsUploading(false);
         }
+
+        const handleDownload = () =>{
+            if (!imageRef.current) return;
+      
+            fetch(imageRef.current.src)
+              .then((response) => response.blob())
+              .then((blob) => {
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.href = url;
+                link.download = "image.png";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(link);
+              });
+          }
+        }
     }
   return (
     <div>SocialFormats</div>

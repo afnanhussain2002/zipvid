@@ -11,6 +11,10 @@ function VideoUpload() {
 
   const router = useRouter()
 
+  // max file size 70mb
+
+  const MAX_FILE_SIZE = 70 * 1024 * 1024
+
   
   return (
     <div>VideoUpload</div>

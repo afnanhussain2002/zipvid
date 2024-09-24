@@ -41,6 +41,11 @@ const VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
         })
         
     },[])
+
+    const formatSize = useCallback((size: number) => {
+
+        return filesize(size)
+    },[])
     return (
         <div>
             Video Card

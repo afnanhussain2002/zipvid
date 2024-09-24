@@ -27,7 +27,14 @@ function VideoUpload() {
         text: "File size is to large!",
         footer: '<a href="#">Why do I have this issue?</a>'
       });
+      return
     }
+    setIsUploading(true)
+    const formData = new FormData()
+    formData.append('file', file)
+    formData.append('title', title)
+    formData.append('description', description)
+    
   }
   return (
     <div>VideoUpload</div>

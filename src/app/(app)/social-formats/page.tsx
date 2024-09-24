@@ -19,8 +19,10 @@ function SocialFormats() {
 
 
     useEffect(() => {
-        
-    })
+        if (uploadImage) {
+            setIsTransforming(true);
+        }
+    },[uploadImage,selectedFormat])
   return (
     <div>SocialFormats</div>
   )

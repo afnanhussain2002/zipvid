@@ -13,6 +13,11 @@ interface VideoCardProps {
     onDownload: (url: string, title: string) => void;
 }
 const VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
+
+    const [isHovered, setIsHovered] = useState(false);
+    const [previewError, setPreviewError] = useState(false);
+
+    
     return (
         <div>
             Video Card

@@ -23,6 +23,32 @@ function SocialFormats() {
             setIsTransforming(true);
         }
     },[uploadImage,selectedFormat])
+
+    const handleFileUPload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if(!file) return;
+        setIsUploading(true);
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+          const response = await fetch("/api/image-upload", {
+                method: "POST",
+                body: formData,
+            })
+
+            if (!response.ok) throw new Error("Upload Failed");
+
+            const result = await response.json();
+            setUploadImage(result.public_id);
+            
+        } catch (error) {
+            console.log(error);
+            
+        }finally{
+            setIsUploading(false);
+        }
+    }
   return (
     <div>SocialFormats</div>
   )

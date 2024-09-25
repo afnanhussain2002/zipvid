@@ -8,6 +8,16 @@ function Home() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+
+  const fetchVideos = useCallback(async () => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  },[])
+
   return <div>Home</div>;
 }
 

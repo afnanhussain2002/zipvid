@@ -12,7 +12,8 @@ function Home() {
 
   const fetchVideos = useCallback(async () => {
     try {
-      
+      const response = await axios.get("/api/videos");
+      setVideos(response.data);
     } catch (error) {
       
     }

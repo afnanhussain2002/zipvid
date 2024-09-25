@@ -15,7 +15,7 @@ import {
 
 const sidebarItems = [
   { href: "/home", icon: LayoutDashboardIcon, label: "Home Page" },
-  { href: "/social-share", icon: Share2Icon, label: "Social Share" },
+  { href: "/social-formats", icon: Share2Icon, label: "Social Formats" },
   { href: "/video-upload", icon: UploadIcon, label: "Video Upload" },
 ];
 

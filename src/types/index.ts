@@ -3,9 +3,9 @@ export interface Video {
     title: string
     description: string
     publicId: string
-    originalSize: number
-    compressedSize: number
+    originalSize: string
+    compressedSize: string
     duration: number
     createdAt: Date
-    updatedAt: Date
+    updateAt: Date
 }

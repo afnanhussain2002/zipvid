@@ -13,13 +13,15 @@ function Home() {
   const fetchVideos = useCallback(async () => {
     try {
       const response = await axios.get("/api/videos");
-      setVideos(response.data);
-      if(Array.isArray(response.data)) {
-        setVideos(response.data)
-    } else {
-        throw new Error(" Unexpected response format");
-
-    }
+      if (Array.isArray(response.data)) {
+        const videosWithUpdateAt = response.data.map((video: any) => ({
+          ...video,
+          updateAt: new Date(video.updateAt), // Ensure updateAt is a Date object
+        }));
+        setVideos(videosWithUpdateAt);
+      } else {
+        throw new Error("Unexpected response format");
+      }
     } catch (error) {
       console.log(error);
       setError("Error fetching videos");
@@ -27,7 +29,7 @@ function Home() {
         icon: "error",
         title: "Oops...",
         text: "Error fetching videos",
-      })
+      });
     } finally {
       setLoading(false);
     }
@@ -40,7 +42,7 @@ function Home() {
   const handleDownload = useCallback((url: string, title: string) => {
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `${title}.mp4`);  // Set the desired filename here
+    link.setAttribute("download", `${title}.mp4`); // Set the desired filename here
     link.setAttribute("target", "_blank");
     document.body.appendChild(link);
     link.click();
@@ -48,11 +50,11 @@ function Home() {
     window.URL.revokeObjectURL(url);
   }, []);
 
-  if(loading){
-    return <div>Loading...</div>
-}
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-return (
+  return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Videos</h1>
       {videos.length === 0 ? (
@@ -61,15 +63,14 @@ return (
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {
+          {Array.isArray(videos) &&
             videos.map((video) => (
-                <VideoCard
-                    key={video.id}
-                    video={video}
-                    onDownload={handleDownload}
-                />
-            ))
-          }
+              <VideoCard
+                key={video.id}
+                video={video}
+                onDownload={handleDownload}
+              />
+            ))}
         </div>
       )}
     </div>

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import VideoCard from "@/components/VideoCard";
 import { Video } from "@/types";
+import Swal from "sweetalert2";
 
 function Home() {
   const [videos, setVideos] = useState<Video[]>([]);
@@ -16,6 +17,11 @@ function Home() {
     } catch (error) {
       console.log(error);
       setError("Error fetching videos");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Error fetching videos",
+      })
     } finally {
       setLoading(false);
     }

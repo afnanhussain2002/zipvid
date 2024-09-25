@@ -17,6 +17,8 @@ function Home() {
     } catch (error) {
       console.log(error);
       setError("Error fetching videos");
+    }finally{
+      setLoading(false);
     }
   },[])
 

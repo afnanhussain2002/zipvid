@@ -22,6 +22,10 @@ function Home() {
     }
   },[])
 
+  useEffect(() => {
+    fetchVideos();
+  }, [fetchVideos]);
+
   return <div>Home</div>;
 }
 

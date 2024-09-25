@@ -7,7 +7,7 @@ import VideoCard from "@/components/VideoCard";
 function Home() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
 
   const fetchVideos = useCallback(async () => {
@@ -15,7 +15,8 @@ function Home() {
       const response = await axios.get("/api/videos");
       setVideos(response.data);
     } catch (error) {
-      
+      console.log(error);
+      setError("Error fetching videos");
     }
   },[])
 

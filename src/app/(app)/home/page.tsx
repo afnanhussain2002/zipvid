@@ -14,6 +14,12 @@ function Home() {
     try {
       const response = await axios.get("/api/videos");
       setVideos(response.data);
+      if(Array.isArray(response.data)) {
+        setVideos(response.data)
+    } else {
+        throw new Error(" Unexpected response format");
+
+    }
     } catch (error) {
       console.log(error);
       setError("Error fetching videos");

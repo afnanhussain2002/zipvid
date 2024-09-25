@@ -9,19 +9,17 @@ function Home() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+console.log(error);
   const fetchVideos = useCallback(async () => {
     try {
       const response = await axios.get("/api/videos");
-      if (Array.isArray(response.data)) {
-        const videosWithUpdateAt = response.data.map((video: any) => ({
-          ...video,
-          updateAt: new Date(video.updateAt), // Ensure updateAt is a Date object
-        }));
-        setVideos(videosWithUpdateAt);
-      } else {
-        throw new Error("Unexpected response format");
-      }
+      console.log('respose---------', response.data);
+      if(Array.isArray(response.data)) {
+        setVideos(response.data)
+    } else {
+        throw new Error(" Unexpected response format");
+
+    }
     } catch (error) {
       console.log(error);
       setError("Error fetching videos");

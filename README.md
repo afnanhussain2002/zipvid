@@ -1,4 +1,4 @@
-The `zipvid` project appears to be a Next.js-based application, with functionalities related to video and image uploading, along with social format handling. Below is a suggested README documentation with icons to make it more visually appealing:
+
 
 ---
 
@@ -103,4 +103,3 @@ npm test
 
 ---
 
-Feel free to add your own icons, logos, or screenshots as necessary. Let me know if you'd like to include more sections or specific details!

@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+The `zipvid` project appears to be a Next.js-based application, with functionalities related to video and image uploading, along with social format handling. Below is a suggested README documentation with icons to make it more visually appealing:
 
-## Getting Started
+---
 
-First, run the development server:
+# 📦 zipvid
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Next.js](https://img.shields.io/badge/Next.js-11-black?style=for-the-badge&logo=next.js) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-11-green?style=for-the-badge&logo=tailwindcss) ![TypeScript](https://img.shields.io/badge/TypeScript-11-blue?style=for-the-badge&logo=typescript) ![Prisma](https://img.shields.io/badge/Prisma-11-lightblue?style=for-the-badge&logo=prisma)
+
+`zipvid` is a full-stack web application designed to allow users to upload and manage video content, including images, while also handling social media formats.
+
+## 📁 Project Structure
+
+```
+zipvid-main/
+├── prisma/                    # Database migration and schema files
+│   ├── migrations/
+│   │   └── [migrations]
+│   └── schema.prisma          # Prisma schema file
+├── src/
+│   ├── app/
+│   │   ├── (app)/             # Core app pages (home, video upload, etc.)
+│   │   ├── (auth)/            # Authentication pages (sign-in, sign-up)
+│   │   ├── api/               # API routes for video and image upload
+│   │   ├── fonts/             # Custom fonts used in the project
+│   │   ├── globals.css        # Global styles
+│   │   └── layout.tsx         # Main layout file
+│   └── components/            # Reusable components (e.g., VideoCard)
+│   └── types/                 # TypeScript types
+├── .eslintrc.json             # ESLint configuration
+├── .gitignore                 # Git ignore file
+├── next.config.mjs            # Next.js configuration file
+├── package.json               # Project dependencies and scripts
+├── postcss.config.mjs         # PostCSS configuration for Tailwind
+├── tailwind.config.ts         # Tailwind CSS configuration
+└── tsconfig.json              # TypeScript configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🔒 **User Authentication**: Secure sign-in and sign-up using built-in authentication pages.
+- 📹 **Video Upload**: Upload videos with social media formatting support.
+- 🖼️ **Image Upload**: API support for image uploads.
+- 🎨 **Responsive Design**: Tailwind CSS-powered responsive UI for various screen sizes.
+- ⚡ **Prisma**: Easy database management and migration with Prisma ORM.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Getting Started
 
-## Learn More
+To get started with the project, follow the instructions below:
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Node.js** version 16.x or higher
+- **Prisma** installed globally (`npm install prisma --global`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/zipvid.git
+    cd zipvid-main
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Configure the environment variables:
+    Create a `.env` file at the root of the project and add your database and API keys.
+
+4. Run database migrations:
+    ```bash
+    npx prisma migrate dev
+    ```
+
+5. Start the development server:
+    ```bash
+    npm run dev
+    ```
+
+### 🧪 Running Tests
+
+To run tests, use the following command:
+```bash
+npm test
+```
+
+### ⚙️ Configuration
+
+- `next.config.mjs`: Next.js configuration for optimization and custom server handling.
+- `prisma/schema.prisma`: Defines the database schema for videos and users.
+
+## 📂 API Endpoints
+
+- **Video Upload**: `POST /api/video-upload`
+- **Image Upload**: `POST /api/image-upload`
+- **Get Videos**: `GET /api/videos`
+
+## 📸 Screenshots
+
+![Video Upload Page](https://via.placeholder.com/800x400.png?text=Video+Upload+Page)
+![Home Page](https://via.placeholder.com/800x400.png?text=Home+Page)
+
+---
+
+Feel free to add your own icons, logos, or screenshots as necessary. Let me know if you'd like to include more sections or specific details!

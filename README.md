@@ -98,8 +98,7 @@ npm test
 
 ## 📸 Screenshots
 
-![Video Upload Page](https://via.placeholder.com/800x400.png?text=Video+Upload+Page)
-![Home Page](https://via.placeholder.com/800x400.png?text=Home+Page)
+![Video Upload Page](https://i.ibb.co.com/b6KdTjq/02-10-2024-10-33-10-REC.png)
 
 ---
 
